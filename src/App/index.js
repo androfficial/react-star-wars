@@ -1,9 +1,19 @@
 import React from 'react';
-import cn from 'classnames';
-import s from '../styles/index.module.css';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { getItems } from '../redux/actions/people';
+
+import { People } from '../pages';
 
 const App = () => {
-  return <div className={cn(s.header)}>Дарова</div>;
+  const dispatch = useDispatch();
+  const people = useSelector(({ people }) => people.items);
+
+  React.useEffect(() => {
+    dispatch(getItems());
+  }, [dispatch]);
+
+  return <People people={people} />;
 };
 
 export default App;
