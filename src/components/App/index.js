@@ -1,11 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { Header, ErrorMessage } from '@components';
+import { People } from '@pages';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '@redux/actions/people';
-
-import { People } from '@pages';
-import { Header, ErrorMessage } from '@components';
 
 import s from '@styles/style.module.scss';
 
