@@ -5,7 +5,7 @@ const instance = axios.create({
 });
 
 export const mainAPI = {
-  getPeople: async () => {
+  async getPeople() {
     try {
       return await instance.get('people');
     } catch (error) {
