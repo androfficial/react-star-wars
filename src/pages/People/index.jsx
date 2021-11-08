@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from '../../styles/style.module.scss';
+import s from '@styles/style.module.scss';
 
 const People = ({ people }) => {
   return (

@@ -1,8 +1,9 @@
-import { getPeopleId, getPeopleImage } from '../../services/getPeopleData';
-import { Types } from '../actions/people';
+import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
+import { Types } from '@redux/actions/people';
 
 let initialState = {
   items: [],
+  errorApi: false,
 };
 
 const cart = (state = initialState, action) => {
@@ -21,8 +22,14 @@ const cart = (state = initialState, action) => {
       return {
         ...state,
         items: peopleList,
+        errorApi: false,
       };
     }
+    case Types.SET_ERROR_API: 
+      return {
+        ...state,
+        errorApi: action.payload,
+      }
     default:
       return state;
   }
