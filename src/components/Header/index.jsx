@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import cn from 'classnames';
 import Logo from '@assets/images/Header/space-station.svg';
 
 import s from '@styles/style.module.scss';
@@ -7,36 +9,66 @@ const Header = () => {
   return (
     <div className={s.header}>
       <div className={s.logo}>
-        <a href="/#" className={s.logo_link}>
+        <NavLink to="/" className={s.logo_link}>
           <img src={Logo} alt="Logo" />
-        </a>
+        </NavLink>
       </div>
       <div className={s.menu}>
         <ul className={s.list}>
           <li className={s.item}>
-            <a href="/#" className={s.link}>
+            <NavLink
+              to="/"
+              className={(data) =>
+                cn(s.link, {
+                  [s.link_active]: data.isActive,
+                })
+              }>
               Home
-            </a>
+            </NavLink>
           </li>
           <li className={s.item}>
-            <a href="/#" className={s.link}>
+            <NavLink
+              to="/people"
+              className={(data) =>
+                cn(s.link, {
+                  [s.link_active]: data.isActive,
+                })
+              }>
               People
-            </a>
+            </NavLink>
           </li>
           <li className={s.item}>
-            <a href="/#" className={s.link}>
+            <NavLink
+              to="/search"
+              className={(data) =>
+                cn(s.link, {
+                  [s.link_active]: data.isActive,
+                })
+              }>
               Search
-            </a>
+            </NavLink>
           </li>
           <li className={s.item}>
-            <a href="/#" className={s.link}>
+            <NavLink
+              to="/not-found"
+              className={(data) =>
+                cn(s.link, {
+                  [s.link_active]: data.isActive,
+                })
+              }>
               Not Found
-            </a>
+            </NavLink>
           </li>
           <li className={s.item}>
-            <a href="/#" className={s.link}>
+            <NavLink
+              to="/fail"
+              className={(data) =>
+                cn(s.link, {
+                  [s.link_active]: data.isActive,
+                })
+              }>
               Fail
-            </a>
+            </NavLink>
           </li>
         </ul>
       </div>

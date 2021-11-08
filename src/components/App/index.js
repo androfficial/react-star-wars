@@ -1,8 +1,9 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import cn from 'classnames';
 
-import { Header, ErrorMessage } from '@components';
-import { People } from '@pages';
+import { Header, ErrorMessage, NotFound } from '@components';
+import { Home, People } from '@pages';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getItems } from '@redux/actions/people';
@@ -27,7 +28,11 @@ const App = () => {
       ) : (
         <>
           <Header />
-          <People people={people} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/people" element={<People people={people} />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </>
       )}
     </div>
