@@ -1,25 +1,35 @@
 import React from 'react';
+import cn from 'classnames';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getItems } from '../../redux/actions/people';
+import { getItems } from '@redux/actions/people';
 
-import { People } from '../../pages';
-import { Header } from '../';
+import { People } from '@pages';
+import { Header, ErrorMessage } from '@components';
 
-import s from '../../styles/style.module.scss';
+import s from '@styles/style.module.scss';
 
 const App = () => {
   const dispatch = useDispatch();
-  const people = useSelector(({ people }) => people.items);
+  const [people, errorApi] = useSelector(({ people }) => [people.items, people.errorApi]);
 
   React.useEffect(() => {
     dispatch(getItems());
   }, [dispatch]);
 
   return (
-    <div className={s.app_wrapper}>
-      <Header />
-      <People people={people} />
+    <div
+      className={cn(s.app_wrapper, {
+        [s.app_wrapper_active]: errorApi,
+      })}>
+      {errorApi ? (
+        <ErrorMessage />
+      ) : (
+        <>
+          <Header />
+          <People people={people} />
+        </>
+      )}
     </div>
   );
 };

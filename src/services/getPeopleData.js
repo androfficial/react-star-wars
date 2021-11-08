@@ -1,4 +1,4 @@
-import { Constants } from '../constants';
+import { Constants } from '@constants';
 
 // Проверка протокола: HTTP или HTTPS
 const checkProtocol = (url) => {

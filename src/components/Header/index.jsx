@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../../assets/images/Header/space-station.svg';
+import Logo from '@assets/images/Header/space-station.svg';
 
-import s from '../../styles/style.module.scss';
+import s from '@styles/style.module.scss';
 
 const Header = () => {
   return (
