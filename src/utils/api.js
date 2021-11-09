@@ -5,9 +5,9 @@ const instance = axios.create({
 });
 
 export const mainAPI = {
-  async getPeople() {
+  async getPeople(page = 1) {
     try {
-      return await instance.get('people');
+      return await instance.get(`people?page=${page}`);
     } catch (error) {
       console.error(`Could not fetch: ${error.message}`);
       return false;

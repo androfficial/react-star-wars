@@ -7,10 +7,7 @@ $maxWidth: 1920;
 .app_wrapper {
   max-width: 1230px;
   margin: 0 auto;
-  padding: 0 15px 50px;
-  &_active {
-    padding: 0 15px;
-  }
+  padding: 0 15px;
 }
 
 // TITLE
@@ -72,7 +69,7 @@ $maxWidth: 1920;
   border-radius: 3px;
   color: #fff;
   text-shadow: 0 0 2px #fff, 0 0 10px #ff0;
-  transition: border-color 0.4s ease 0s, color 0.4s ease 0s, text-shadow .4s ease 0s;
+  transition: border-color 0.4s ease 0s, color 0.4s ease 0s, text-shadow 0.4s ease 0s;
   &_active {
     border-color: #ae72c2;
     color: #ae72c2;
@@ -127,6 +124,11 @@ $maxWidth: 1920;
       }
     }
   }
+}
+
+// CONTENT_WRAPPER
+.content_wrapper {
+  padding: 0px 0px 50px 0px;
 }
 
 // HOME
@@ -200,6 +202,14 @@ $maxWidth: 1920;
 // PEOPLE
 .people {
   overflow: hidden;
+  button {
+    padding: 10px;
+    color: #000;
+    background-color: #fff;
+    &:not(:last-child) {
+      margin: 0px 5px 0px 0px;
+    }
+  }
 }
 .people_list {
   display: grid;
@@ -229,6 +239,44 @@ $maxWidth: 1920;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+// NAVIGATION
+.nav_links {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: auto;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  margin: 35px 0px 0px 0px;
+}
+.nav_link {
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 135px;
+  min-height: 45px;
+  padding: 0 5px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  color: #fff;
+  transition: color .4s ease 0s, background-color .4s ease 0s;
+  &_disabled {
+    pointer-events: none;
+    color: #9c9c9c;
+    background-color: transparent;
+    border-color: #9c9c9c;
+  }
+  @media (hover: hover) {
+    &:hover {
+      color: #000;
+      background-color: #fff;
+    }
+  }
 }
 
 // ERROR
