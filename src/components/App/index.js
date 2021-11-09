@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import cn from 'classnames';
 
-import { Header, ErrorMessage, NotFound } from '@components';
+import { Header, ErrorMessage, NotFound, Person } from '@components';
 import { Home, People } from '@pages';
 
 import { useSelector } from 'react-redux';
@@ -26,6 +26,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/people" element={<People />} />
+              <Route path="/people/:id" element={<Person />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

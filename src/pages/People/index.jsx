@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Navigation from '@components/Navigation';
 
@@ -9,7 +10,7 @@ import { useQueryParams } from '@hooks/useQueryParams';
 import s from '@styles/style.module.scss';
 
 const People = () => {
-  const queryPage = useQueryParams().get('page');
+  let queryPage = useQueryParams().get('page');
 
   const dispatch = useDispatch();
   const { people, currentPage, prevPage, nextPage } = useSelector(({ people }) => ({
@@ -20,6 +21,9 @@ const People = () => {
   }));
 
   React.useEffect(() => {
+    if (queryPage === null) {
+      queryPage = 1;
+    }
     dispatch(getItems(+queryPage));
   }, [dispatch, queryPage]);
 
@@ -29,10 +33,10 @@ const People = () => {
         {people &&
           people.map(({ id, name: personName, img }) => (
             <li key={`${id}_${personName}`} className={s.people_item}>
-              <a href="/#" className={s.people_link}>
+              <Link to={`/people/${id}`} className={s.people_link}>
                 <img src={img} alt={personName} />
                 <p className={s.people_name}>{personName}</p>
-              </a>
+              </Link>
             </li>
           ))}
       </ul>
