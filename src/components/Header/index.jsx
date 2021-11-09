@@ -28,7 +28,7 @@ const Header = () => {
           </li>
           <li className={s.item}>
             <NavLink
-              to="/people"
+              to="/people/?page=1"
               className={(data) =>
                 cn(s.link, {
                   [s.link_active]: data.isActive,

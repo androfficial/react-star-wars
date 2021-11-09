@@ -3,10 +3,12 @@ import { mainAPI } from '@utils/api';
 export const Types = {
   SET_PEOPLE: 'PEOPLE@SET:PEOPLE',
   SET_ERROR_API: 'PEOPLE@SET:ERROR_API',
+  SET_CURRENT_PAGE: 'PEOPLE@SET:CURRENT_PAGE',
 };
 
-export const setItems = (payload) => ({
+export const setItems = (page, payload) => ({
   type: Types.SET_PEOPLE,
+  page,
   payload,
 });
 
@@ -15,10 +17,15 @@ export const setErrorApi = (payload) => ({
   payload,
 });
 
-export const getItems = () => async (dispatch) => {
-  const data = await mainAPI.getPeople();
+export const setCurrentPage = (payload) => ({
+  type: Types.SET_CURRENT_PAGE,
+  payload,
+});
+
+export const getItems = (page) => async (dispatch) => {
+  const data = await mainAPI.getPeople(page);
   if (data) {
-    dispatch(setItems(data.data.results));
+    dispatch(setItems(page, data.data));
   } else {
     dispatch(setErrorApi(true));
   }
