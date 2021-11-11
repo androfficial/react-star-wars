@@ -42,6 +42,7 @@ const cart = (state = initialState, action) => {
       const img = getPeopleImage(id);
 
       const filteredPersonInfo = {
+        personId: id,
         name: action.payload.name,
         image: img,
         films: action.payload.films,
