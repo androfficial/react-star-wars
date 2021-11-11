@@ -20,10 +20,10 @@ const Header = () => {
         setIcon(Lightsaber);
         break;
       case THEME_DARK:
-        setIcon(SpaceStation);
+        setIcon(Droid);
         break;
       case THEME_NEITRAL:
-        setIcon(Droid);
+        setIcon(SpaceStation);
         break;
       default:
         setIcon(SpaceStation);
