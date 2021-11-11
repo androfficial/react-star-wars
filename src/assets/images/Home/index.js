@@ -1,3 +1,3 @@
-export { default as Card1 } from './light-side.jpg';
-export { default as Card2 } from './dark-side.jpg';
-export { default as Card3 } from './falcon.jpg';
+export { default as LightSide } from './light-side.jpg';
+export { default as DarkSide } from './dark-side.jpg';
+export { default as Falcon } from './falcon.jpg';

@@ -1,26 +1,20 @@
 import React from 'react';
-import { Card1, Card2, Card3 } from '@assets/images/Home/';
+
+import { Title, Card } from '@components';
+import { LightSide, DarkSide, Falcon } from '@assets/images/Home';
+
+import { THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from '@context/ThemeProvider';
 
 import s from '@styles/style.module.scss';
-import Title from '@components/Title';
 
 const Home = () => {
   return (
     <div className={s.home}>
       <Title text="Choose your side" />
       <ul className={s.home_cards}>
-        <li className={s.home_card}>
-          <img src={Card1} alt="Card" />
-          <p className={s.home_text}>Light Side</p>
-        </li>
-        <li className={s.home_card}>
-          <img src={Card2} alt="Card" />
-          <p className={s.home_text}>Dark Side</p>
-        </li>
-        <li className={s.home_card}>
-          <img src={Card3} alt="Card" />
-          <p className={s.home_text}>I'm Han Solo</p>
-        </li>
+        <Card theme={THEME_LIGHT} image={LightSide} text="Light Side" />
+        <Card theme={THEME_DARK} image={DarkSide} text="Dark Side" />
+        <Card theme={THEME_NEITRAL} image={Falcon} text="I'm Han Solo" />
       </ul>
     </div>
   );

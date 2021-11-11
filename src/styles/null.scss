@@ -1,3 +1,17 @@
+:root {
+  // THEMES
+  --theme-light-header: #dfe2df;
+  --theme-dark-header: #ca6c6f;
+  --theme-neitral-header: #cccc46;
+  --theme-default-header: var(--theme-neitral-header);
+
+  // BACKGROUNDS
+  --theme-light-bgimage: linear-gradient(to right bottom, #051937, #162454, #312d70, #533389, #7a359f);
+  --theme-dark-bgimage:  linear-gradient(to right bottom, #000000, #160b11, #20141e, #281b2e, #2b2440);
+  --theme-neitral-bgimage: url(../assets/images/bg.jpg);
+  --theme-default-bgimage: var(--theme-neitral-bgimage);
+}
+
 html {
   margin: 0;
   height: 100%;
@@ -11,7 +25,8 @@ body {
   font-size: 14px;
   line-height: 1;
   color: #fff;
-  background: #000 url('../assets/images/bg.jpg');
+  background: var(--theme-default-bgimage);
+  background-color: #10100e;
   background-attachment: fixed;
   background-position: 0 0;
   background-repeat: no-repeat;
