@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
-
 import cn from 'classnames';
+
+import HeaderNavLink from '@components/HeaderNavLink';
 import { SpaceStation, Droid, Lightsaber } from '@assets/images/Header';
 
 import { useTheme, THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from '@context/ThemeProvider';
@@ -12,7 +13,12 @@ import s from '@styles/style.module.scss';
 const Header = () => {
   const [icon, setIcon] = React.useState(SpaceStation);
   const isTheme = useTheme();
-  let count = useSelector(({ favorites }) => favorites.items.length);
+  const count = useSelector(({ favorites }) => favorites.items.length);
+
+  const getFavoritesCount = () => (String(count).length >= 2 ? '9+' : count);
+  const activeNavLink = ({ isActive }) => cn(s.link, {
+    [s.link_active]: isActive,
+  }); 
 
   React.useEffect(() => {
     switch (isTheme.theme) {
@@ -39,66 +45,16 @@ const Header = () => {
       </div>
       <div className={s.menu}>
         <ul className={s.list}>
-          <li className={s.item}>
-            <NavLink
-              to="/"
-              className={(data) =>
-                cn(s.link, {
-                  [s.link_active]: data.isActive,
-                })
-              }>
-              Home
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink
-              to="/people"
-              className={(data) =>
-                cn(s.link, {
-                  [s.link_active]: data.isActive,
-                })
-              }>
-              People
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink
-              to="/search"
-              className={(data) =>
-                cn(s.link, {
-                  [s.link_active]: data.isActive,
-                })
-              }>
-              Search
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink
-              to="/not-found"
-              className={(data) =>
-                cn(s.link, {
-                  [s.link_active]: data.isActive,
-                })
-              }>
-              Not Found
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink
-              to="/fail"
-              className={(data) =>
-                cn(s.link, {
-                  [s.link_active]: data.isActive,
-                })
-              }>
-              Fail
-            </NavLink>
-          </li>
+          <HeaderNavLink path="/" className={activeNavLink} text="Home" />
+          <HeaderNavLink path="/people" className={activeNavLink} text="People" />
+          <HeaderNavLink path="/search" className={activeNavLink} text="Search" />
+          <HeaderNavLink path="/not-found" className={activeNavLink} text="Not Found" />
+          <HeaderNavLink path="/fail" className={activeNavLink} text="Fail" />
         </ul>
       </div>
       <div className={s.favorites}>
         <Link to="/favorites" className={s.go_to_favorites}>
-          <span className={s.counter}>{count}</span>
+          <span className={s.counter}>{getFavoritesCount()}</span>
           <svg viewBox="0 0 212.045 212.045">
             <path
               d="M167.871,0H44.84C34.82,0,26.022,8.243,26.022,18v182c0,3.266,0.909,5.988,2.374,8.091c1.752,2.514,4.573,3.955,7.598,3.954
