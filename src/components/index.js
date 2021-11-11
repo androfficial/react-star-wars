@@ -6,3 +6,4 @@ export { default as ErrorMessage } from './ErrorMessage';
 export { default as NotFound } from './NotFound';
 export { default as Person } from './Person';
 export { default as PersonGoBack } from './PersonGoBack';
+export { default as Empty } from './Empty';

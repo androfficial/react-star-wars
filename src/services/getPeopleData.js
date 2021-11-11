@@ -15,7 +15,7 @@ const getId = (url, category) => {
 
   const id = url.replace(protocol + Constants.SWAPI_ROOT + category, '').replace(/\//g, '');
 
-  return id;
+  return +id;
 };
 
 export const getPeopleId = (url) => getId(url, Constants.SWAPI_PEOPLE);

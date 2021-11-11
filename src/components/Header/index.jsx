@@ -1,11 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Link, NavLink } from 'react-router-dom';
+
 import cn from 'classnames';
 import Logo from '@assets/images/Header/space-station.svg';
 
 import s from '@styles/style.module.scss';
 
 const Header = () => {
+  let count = useSelector(({ favorites }) => favorites.items.length);
+
   return (
     <div className={s.header}>
       <div className={s.logo}>
@@ -73,8 +77,8 @@ const Header = () => {
         </ul>
       </div>
       <div className={s.favorites}>
-        <a href="/#" className={s.go_to_favorites}>
-          <span className={s.counter}>0</span>
+        <Link to="/favorites" className={s.go_to_favorites}>
+          <span className={s.counter}>{count}</span>
           <svg viewBox="0 0 212.045 212.045">
             <path
               d="M167.871,0H44.84C34.82,0,26.022,8.243,26.022,18v182c0,3.266,0.909,5.988,2.374,8.091c1.752,2.514,4.573,3.955,7.598,3.954
@@ -82,7 +86,7 @@ const Header = () => {
                 c2.822,2.409,5.657,3.683,8.512,3.683c4.828,0,9.534-3.724,9.534-12.045V18C186.022,8.243,177.891,0,167.871,0z"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );
