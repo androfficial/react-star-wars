@@ -3,18 +3,38 @@ import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 
 import cn from 'classnames';
-import Logo from '@assets/images/Header/space-station.svg';
+import { SpaceStation, Droid, Lightsaber } from '@assets/images/Header';
+
+import { useTheme, THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from '@context/ThemeProvider';
 
 import s from '@styles/style.module.scss';
 
 const Header = () => {
+  const [icon, setIcon] = React.useState(SpaceStation);
+  const isTheme = useTheme();
   let count = useSelector(({ favorites }) => favorites.items.length);
+
+  React.useEffect(() => {
+    switch (isTheme.theme) {
+      case THEME_LIGHT:
+        setIcon(Lightsaber);
+        break;
+      case THEME_DARK:
+        setIcon(SpaceStation);
+        break;
+      case THEME_NEITRAL:
+        setIcon(Droid);
+        break;
+      default:
+        setIcon(SpaceStation);
+    }
+  }, [isTheme]);
 
   return (
     <div className={s.header}>
       <div className={s.logo}>
         <NavLink to="/" className={s.logo_link}>
-          <img src={Logo} alt="Logo" />
+          <img src={icon} alt="Star Wars Logo" />
         </NavLink>
       </div>
       <div className={s.menu}>
