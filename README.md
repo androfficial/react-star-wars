@@ -12,6 +12,7 @@ yarn install
 npm run start
 yarn start
 ```
+---
 
 ### :hammer_and_wrench: Stack:
 * ReactJS + Hooks / Custom Hooks
@@ -23,6 +24,8 @@ yarn start
 * PropTypes
 * ClassNames
 * SCSS / Mixins
+
+---
 
 ### :hotsprings: API
 - https://swapi.dev (основное API)
