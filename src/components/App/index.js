@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import cn from 'classnames';
 
 import { Header, ErrorMessage, NotFound, Person } from '@components';
 import { Home, Favorites, People } from '@pages';
@@ -13,10 +12,7 @@ const App = () => {
   const errorApi = useSelector(({ people }) => people.errorApi);
 
   return (
-    <div
-      className={cn(s.app_wrapper, {
-        [s.app_wrapper_active]: errorApi,
-      })}>
+    <div className={s.app_wrapper}>
       {errorApi ? (
         <ErrorMessage />
       ) : (
