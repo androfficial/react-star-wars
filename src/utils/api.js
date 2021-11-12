@@ -36,4 +36,12 @@ export const mainAPI = {
       return false;
     }
   },
+  async getSearchData(value) {
+    try {
+      return await instance.get(`people/?search=${value}`);
+    } catch (error) {
+      console.error(`Could not fetch: ${error.message}`);
+      return false;
+    }
+  },
 };

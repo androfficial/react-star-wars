@@ -25,7 +25,7 @@ const Favorites = () => {
           ))}
         </ul>
       ) : (
-        <Empty />
+        <Empty text="You haven't added anyone yet :(" />
       )}
     </div>
   );
