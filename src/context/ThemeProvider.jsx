@@ -13,7 +13,7 @@ export const ThemeProvider = ({ children, ...props }) => {
   const handleChangeTheme = (name) => {
     setTheme(name);
     changeCssVariables(name);
-  }
+  };
 
   return (
     <ThemeContext.Provider
