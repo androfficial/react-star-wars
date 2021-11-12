@@ -28,6 +28,6 @@ yarn start
 ---
 
 ### :hotsprings: API
-- https://swapi.dev (основное API)
-- https://swapi.py4e.com (резервное API)
-- https://starwars-visualguide.com (API для изображений)
+- https://swapi.dev (main API)
+- https://swapi.py4e.com (fallback API)
+- https://starwars-visualguide.com (API for images)
