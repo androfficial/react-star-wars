@@ -1,4 +1,4 @@
-## 🪐 Star Wars
+## 🪐 Star Wars Application
 
 ### Stack:
 * ReactJS + Hooks / Custom Hooks
