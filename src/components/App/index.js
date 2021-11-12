@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header, ErrorMessage, NotFound, Person } from '@components';
-import { Home, Favorites, People } from '@pages';
+import { Home, Favorites, People, Search } from '@pages';
 
 import { useSelector } from 'react-redux';
 
@@ -23,6 +23,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/people" element={<People />} />
               <Route path="/people/:id" element={<Person />} />
+              <Route path="/search" element={<Search />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
