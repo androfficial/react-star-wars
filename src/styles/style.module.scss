@@ -566,15 +566,25 @@ $maxWidth: 1920;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
-  line-height: 1.7;
-  text-align: center;
-  color: #ffff00;
-  text-shadow: 0px 0px 2px #fff;
+  &_text {
+    font-size: 26px;
+    line-height: 1.7;
+    text-align: center;
+    color: #ffff00;
+    text-shadow: 0px 0px 2px #fff;
 
-  -webkit-text-stroke-color: #ffff00;
-  -webkit-text-stroke-width: 0.5px;
-  -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: #ffff00;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-fill-color: transparent;
+  }
+  &_video {
+    margin: 20px 0px 0px 0px;
+    border-radius: 5px;
+    box-shadow: 0 16px 24px 2px hsla(0, 0%, 100%, 0.02), 0 6px 30px 5px hsla(0, 0%, 100%, 0.04),
+      0 8px 10px -5px hsla(0, 0%, 100%, 0.1);
+    source {
+    }
+  }
 }
 .empty {
   &_title {
