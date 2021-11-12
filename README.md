@@ -1,4 +1,17 @@
-## 🪐 Star Wars Application
+## :ringed_planet: Star Wars Application
+
+### :recycle: Available Scripts and Commands
+```bash
+# Install dependencies
+npm i
+yarn install    
+```
+
+```bash
+# Run app in the development mode
+npm run start
+yarn start
+```
 
 ### :hammer_and_wrench: Stack:
 * ReactJS + Hooks / Custom Hooks
