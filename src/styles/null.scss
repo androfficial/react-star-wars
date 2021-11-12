@@ -12,6 +12,24 @@
   --theme-default-bgimage: var(--theme-neitral-bgimage);
 }
 
+* {
+  scrollbar-color: rgb(37, 56, 97) rgba(0, 0, 0, .7);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(37, 56, 97);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-corner {
+  background-color: rgba(0, 0, 0, .7);
+}
+
 html {
   margin: 0;
   height: 100%;
