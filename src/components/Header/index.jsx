@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cn from 'classnames';
 
 import HeaderNavLink from '@components/HeaderNavLink';
@@ -12,16 +12,17 @@ import s from '@styles/style.module.scss';
 
 const Header = () => {
   const [icon, setIcon] = React.useState(SpaceStation);
-  const isTheme = useTheme();
+  const { theme, change } = useTheme();
   const count = useSelector(({ favorites }) => favorites.items.length);
 
   const getFavoritesCount = () => (String(count).length >= 2 ? '9+' : count);
-  const activeNavLink = ({ isActive }) => cn(s.link, {
-    [s.link_active]: isActive,
-  }); 
+  const activeNavLink = ({ isActive }) =>
+    cn(s.link, {
+      [s.link_active]: isActive,
+    });
 
   React.useEffect(() => {
-    switch (isTheme.theme) {
+    switch (theme) {
       case THEME_LIGHT:
         setIcon(Lightsaber);
         break;
@@ -34,22 +35,30 @@ const Header = () => {
       default:
         setIcon(SpaceStation);
     }
-  }, [isTheme]);
+  }, [theme, change]);
 
   return (
     <div className={s.header}>
       <div className={s.logo}>
-        <NavLink to="/" className={s.logo_link}>
-          <img src={icon} alt="Star Wars Logo" />
-        </NavLink>
+        <HeaderNavLink path="/" className={s.logo_link} image={icon} alt="Star Wars Logo" />
       </div>
       <div className={s.menu}>
         <ul className={s.list}>
-          <HeaderNavLink path="/" className={activeNavLink} text="Home" />
-          <HeaderNavLink path="/people" className={activeNavLink} text="People" />
-          <HeaderNavLink path="/search" className={activeNavLink} text="Search" />
-          <HeaderNavLink path="/not-found" className={activeNavLink} text="Not Found" />
-          <HeaderNavLink path="/fail" className={activeNavLink} text="Fail" />
+          <li className={s.item}>
+            <HeaderNavLink path="/" className={activeNavLink} text="Home" />
+          </li>
+          <li className={s.item}>
+            <HeaderNavLink path="/people" className={activeNavLink} text="People" />
+          </li>
+          <li className={s.item}>
+            <HeaderNavLink path="/search" className={activeNavLink} text="Search" />
+          </li>
+          <li className={s.item}>
+            <HeaderNavLink path="/not-found" className={activeNavLink} text="Not Found" />
+          </li>
+          <li className={s.item}>
+            <HeaderNavLink path="/fail" className={activeNavLink} text="Fail" />
+          </li>
         </ul>
       </div>
       <div className={s.favorites}>
