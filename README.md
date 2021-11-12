@@ -1,6 +1,6 @@
 ## 🪐 Star Wars Application
 
-### Stack:
+### :hammer_and_wrench: Stack:
 * ReactJS + Hooks / Custom Hooks
 * React Router
 * Context API
@@ -11,7 +11,7 @@
 * ClassNames
 * SCSS / Mixins
 
-### 🦄 API
+### :hotsprings: API
 - https://swapi.dev (основное API)
 - https://swapi.py4e.com (резервное API)
 - https://starwars-visualguide.com (API для изображений)
