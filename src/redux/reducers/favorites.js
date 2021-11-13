@@ -1,9 +1,7 @@
 import { Types } from '@redux/actions/favorites';
-// import { getLocalStorage } from '@utils/localStorage';
+import { getLocalStorage } from '@utils/localStorage';
 
-const initialState = {
-  items: [],
-};
+const initialState = getLocalStorage('store');
 
 const favorites = (state = initialState, action) => {
   switch (action.type) {

@@ -5,7 +5,9 @@ export const getLocalStorage = (key) => {
     return JSON.parse(data);
   }
 
-  return {};
+  return {
+    items: [],
+  };
 };
 
 export const setLocalStorage = (key, data) => {
