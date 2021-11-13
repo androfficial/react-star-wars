@@ -1,6 +1,6 @@
 :root {
   // THEMES
-  --theme-light-header: #dfe2df;
+  --theme-light-header: #fff;
   --theme-dark-header: #ca6c6f;
   --theme-neitral-header: #cccc46;
   --theme-default-header: var(--theme-neitral-header);
@@ -30,29 +30,6 @@
   background-color: rgba(0, 0, 0, .7);
 }
 
-html {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-}
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1;
-  color: #fff;
-  background: var(--theme-default-bgimage);
-  background-color: #10100e;
-  background-attachment: fixed;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  font-family: sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 input,
 button,
 textarea,
@@ -124,4 +101,28 @@ button {
   &:focus {
     outline: none;
   }
+}
+html {
+  min-height: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+  margin: 0px calc(-1 * (100vw - 100%)) 0px 0px;
+}
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  background: var(--theme-default-bgimage);
+  background-color: #10100e;
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
