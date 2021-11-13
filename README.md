@@ -8,7 +8,7 @@ yarn install
 ```
 
 ```bash
-# Run app in the development mode
+# Run app
 npm run start
 yarn start
 ```
