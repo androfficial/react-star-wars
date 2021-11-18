@@ -250,7 +250,8 @@ $maxWidth: 1920;
 
 // PERSON
 .person {
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   &_body {
     display: flex;
     flex-direction: column;
@@ -301,6 +302,9 @@ $maxWidth: 1920;
       pointer-events: none;
       width: 100%;
       height: 100%;
+    }
+    &_loading {
+      pointer-events: none;
     }
   }
   &_details {
@@ -478,6 +482,7 @@ $maxWidth: 1920;
   align-items: center;
   justify-content: center;
 }
+
 // GO BACK
 .go_back_top {
   &:not(:last-child) {
@@ -487,17 +492,30 @@ $maxWidth: 1920;
 .go_back_link {
   display: inline-flex;
   align-items: center;
+  @media (hover: hover) {
+    &:hover {
+      svg {
+        fill: darken(#ffff00, 5%);
+        transform: translateX(-3px);
+      }
+      span {
+        color: darken(#ffff00, 5%);
+      }
+    }
+  }
   svg {
     flex: 0 0 30px;
     height: 30px;
     fill: #ffff00;
     margin: 0px 10px 0px 0px;
+    transition: fill .2s ease 0s, transform .2s ease 0s;
   }
   span {
     flex: 1 1 auto;
     font-weight: 600;
     font-size: 16px;
     color: #ff0;
+    transition: color .2s ease 0s;
   }
 }
 
