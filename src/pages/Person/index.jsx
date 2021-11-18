@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import cn from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -14,19 +15,22 @@ import s from '@styles/style.module.scss';
 const Person = () => {
   const { id } = useParams();
   const { personFavorites } = useTheme();
+  const [isAdded, setIsAdded] = useState(false);
 
   const dispatch = useDispatch();
   const { personId, name, image, films, details } = useSelector(({ person }) => person.personInfo);
   const isLoaded = useSelector(({ person }) => person.isLoaded);
 
-  const onAddToFavorites = () => {
+  const onAddToFavorites = async () => {
+    setIsAdded(true);
     const obj = {
       personId,
       name,
       image,
     };
 
-    dispatch(setFavorites(obj));
+    await dispatch(setFavorites(obj));
+    setIsAdded(false);
   };
 
   useEffect(() => {
@@ -43,7 +47,10 @@ const Person = () => {
             <span className={s.person_name}>{name}</span>
             <div className={s.person_content}>
               <div className={s.person_picture}>
-                <button onClick={onAddToFavorites} className={s.person_button}>
+                <button
+                  disabled={isAdded}
+                  onClick={onAddToFavorites}
+                  className={s.person_button}>
                   {personFavorites(personId) ? (
                     <svg viewBox="0 0 512 512">
                       <g fill="#ffff00" stroke="#000">
