@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Navigation from '@components/Navigation';
@@ -20,7 +20,7 @@ const People = () => {
     nextPage: people.nextPage,
   }));
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (queryPage === null) {
       queryPage = 1;
     }

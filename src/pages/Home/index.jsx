@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Title, Card } from '@components';
 import { LightSide, DarkSide, Falcon } from '@assets/images/Home';
 

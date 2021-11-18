@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
@@ -12,7 +12,8 @@ import { usePersonFavorites } from '@hooks/usePersonFavorites';
 import s from '@styles/style.module.scss';
 
 const Person = () => {
-  const { id } = useParams();
+  const response = useParams();
+  console.log(response);
 
   const dispatch = useDispatch();
   const { personId, name, image, films, details } = useSelector(({ people }) => people.person);
@@ -27,9 +28,9 @@ const Person = () => {
     dispatch(setFavorites(obj));
   };
 
-  React.useEffect(() => {
-    dispatch(getPerson(id));
-  }, [id, dispatch]);
+  useEffect(() => {
+    dispatch(getPerson(response.id));
+  }, [response.id, dispatch]);
 
   return (
     <div className={s.person}>

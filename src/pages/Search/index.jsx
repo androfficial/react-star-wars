@@ -1,10 +1,10 @@
-import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { debounce } from 'lodash';
+import cn from 'classnames';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { mainAPI } from '@utils/api';
 
-import cn from 'classnames';
 import { Title, Empty } from '@components';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 
@@ -14,8 +14,8 @@ import s from '@styles/style.module.scss';
 
 const Search = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState('');
-  const [people, setPeople] = React.useState([]);
+  const [value, setValue] = useState('');
+  const [people, setPeople] = useState([]);
 
   const getSearchApi = async (value) => {
     const res = await mainAPI.getSearchData(value);
@@ -39,11 +39,11 @@ const Search = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     getSearchApi('');
   }, []);
 
-  const debounceGetResp = React.useCallback(
+  const debounceGetResp = useCallback(
     debounce((value) => getSearchApi(value), 400),
     [],
   );
