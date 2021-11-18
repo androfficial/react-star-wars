@@ -18,27 +18,30 @@ const Search = () => {
   const [value, setValue] = useState('');
   const [people, setPeople] = useState([]);
 
-  const getSearchApi = async (value) => {
-    const res = await mainAPI.getSearchData(value);
-    if (res) {
-      const resPeople = res.data.results;
-      const resFilteredPeople = resPeople.map(({ name, url }) => {
-        const id = getPeopleId(url);
-        const img = getPeopleImage(id);
+  const getSearchApi = useCallback(
+    async (value) => {
+      const res = await mainAPI.getSearchData(value);
+      if (res) {
+        const resPeople = res.data.results;
+        const resFilteredPeople = resPeople.map(({ name, url }) => {
+          const id = getPeopleId(url);
+          const img = getPeopleImage(id);
 
-        return {
-          id,
-          name,
-          image: img,
-        };
-      });
-      setPeople(resFilteredPeople);
+          return {
+            id,
+            name,
+            image: img,
+          };
+        });
+        setPeople(resFilteredPeople);
 
-      dispatch(setErrorApi(false));
-    } else {
-      dispatch(setErrorApi(true));
-    }
-  };
+        dispatch(setErrorApi(false));
+      } else {
+        dispatch(setErrorApi(true));
+      }
+    },
+    [dispatch],
+  );
 
   useEffect(() => {
     (async () => {
@@ -46,7 +49,7 @@ const Search = () => {
       setIsLoaded(true);
     })();
     return () => setIsLoaded(false);
-  }, []);
+  }, [getSearchApi]);
 
   const debounceGetResp = useCallback(
     debounce((value) => getSearchApi(value), 400),
