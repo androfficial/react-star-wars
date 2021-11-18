@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { changeCssVariables } from '@services/changeCssVariables';
 
 export const THEME_LIGHT = 'light';
 export const THEME_DARK = 'dark';
 export const THEME_NEITRAL = 'neitral';
 
-const ThemeContext = React.createContext();
+const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children, ...props }) => {
-  const [theme, setTheme] = React.useState(null);
+  const [theme, setTheme] = useState(null);
 
   const handleChangeTheme = (name) => {
     setTheme(name);

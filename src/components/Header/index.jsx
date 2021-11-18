@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
@@ -11,7 +11,7 @@ import { useTheme, THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from '@context/Theme
 import s from '@styles/style.module.scss';
 
 const Header = () => {
-  const [icon, setIcon] = React.useState(SpaceStation);
+  const [icon, setIcon] = useState(SpaceStation);
   const { theme, change } = useTheme();
   const count = useSelector(({ favorites }) => favorites.items.length);
 
@@ -21,7 +21,7 @@ const Header = () => {
       [s.link_active]: isActive,
     });
 
-  React.useEffect(() => {
+  useEffect(() => {
     switch (theme) {
       case THEME_LIGHT:
         setIcon(Lightsaber);

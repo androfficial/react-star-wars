@@ -105,8 +105,10 @@ button {
 html {
   min-height: 100%;
   min-width: 100%;
-  overflow-x: hidden;
-  margin: 0px calc(-1 * (100vw - 100%)) 0px 0px;
+  &._pc {
+    overflow-x: hidden;
+    margin: 0px calc(-1 * (100vw - 100%)) 0px 0px;
+  }
 }
 body {
   margin: 0;

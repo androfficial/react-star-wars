@@ -1,5 +1,3 @@
-import React from 'react'
-
 import s from '@styles/style.module.scss';
 
 const Empty = ({ text }) => {

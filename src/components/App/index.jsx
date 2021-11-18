@@ -1,15 +1,19 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
 import { Header, ErrorMessage, NotFound, Person } from '@components';
 import { Home, People, Search, Fail, Favorites } from '@pages';
-
-import { useSelector } from 'react-redux';
+import { addMarginRight } from '@services/addMarginRight';
 
 import s from '@styles/style.module.scss';
 
 const App = () => {
   const errorApi = useSelector(({ people }) => people.errorApi);
+
+  useEffect(() => {
+    addMarginRight();
+  }, []);
 
   return (
     <div className={s.app_wrapper}>

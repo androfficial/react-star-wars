@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { VideoWebM, VideoMp4 } from '@assets/images/ErrorMessage';
 
 import s from '@styles/style.module.scss';

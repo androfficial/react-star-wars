@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useTheme } from '@context/ThemeProvider';
 
 import s from '@styles/style.module.scss';

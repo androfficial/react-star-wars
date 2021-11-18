@@ -1,9 +1,7 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { Title, Empty } from '@components';
-
-import { useSelector } from 'react-redux';
 
 import s from '@styles/style.module.scss';
 
