@@ -5,6 +5,7 @@ export const Types = {
   SET_ERROR_API: 'PEOPLE@SET:ERROR_API',
   SET_CURRENT_PAGE: 'PEOPLE@SET:CURRENT_PAGE',
   SET_PERSON: 'PEOPLE@SET:PERSON',
+  SET_IS_LOADED: 'PEOPLE@SET:IS_LOADED',
 };
 
 export const setItems = (page, payload) => ({
@@ -13,13 +14,13 @@ export const setItems = (page, payload) => ({
   payload,
 });
 
-export const setPerson = (payload) => ({
-  type: Types.SET_PERSON,
+export const setErrorApi = (payload) => ({
+  type: Types.SET_ERROR_API,
   payload,
 });
 
-export const setErrorApi = (payload) => ({
-  type: Types.SET_ERROR_API,
+export const setIsLoaded = (payload) => ({
+  type: Types.SET_IS_LOADED,
   payload,
 });
 
@@ -31,9 +32,4 @@ export const setCurrentPage = (payload) => ({
 export const getItems = (page) => async (dispatch) => {
   const data = await mainAPI.getPeople(page);
   data ? dispatch(setItems(page, data.data)) : dispatch(setErrorApi(true));
-};
-
-export const getPerson = (id) => async (dispatch) => {
-  const data = await mainAPI.getPerson(id);
-  data ? dispatch(setPerson(data)) : dispatch(setErrorApi(true));
 };

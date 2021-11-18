@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import { Header, ErrorMessage, NotFound, Person } from '@components';
-import { Home, People, Search, Fail, Favorites } from '@pages';
+import { Header, ErrorMessage, NotFound } from '@components';
+import { Home, People, Person, Search, Fail, Favorites } from '@pages';
 import { addMarginRight } from '@services/addMarginRight';
 
 import s from '@styles/style.module.scss';
