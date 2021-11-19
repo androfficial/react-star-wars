@@ -1,2 +1,2 @@
-export { default as VideoWebM } from './han-solo.webm';
-export { default as VideoMp4 } from './han-solo.mp4';
+export { default as Error500 } from './500.svg';
+export { default as Oops } from './Oops.svg';
