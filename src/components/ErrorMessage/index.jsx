@@ -1,24 +1,22 @@
-import { VideoWebM, VideoMp4 } from '@assets/images/ErrorMessage';
+import { useNavigate } from 'react-router-dom';
+import cn from 'classnames';
+
+import { Button } from '@components';
 
 import s from '@styles/style.module.scss';
 
-const ErrorMessage = ({ customHeight }) => {
+const ErrorMessage = ({ customHeight, code, message, className, image }) => {
+  const navigate = useNavigate();
+
   return (
     <div
-      className={s.error}
       style={{
         height: customHeight,
-      }}>
-      <p className={s.error_text}>
-        The dark side of the force has won. <br />
-        We cannot display data.
-        <br />
-        Come back when we fix everything
-      </p>
-      <video autoPlay muted loop preload="auto" className={s.error_video}>
-        <source type="video/webm" src={VideoWebM} />
-        <source type="video/mp4" src={VideoMp4} />
-      </video>
+      }}
+      className={s.error}>
+      <img className={cn(s.error_img, className)} src={image} alt={cn('Error', code)} />
+      <p className={s.error_text}>{message}</p>
+      <Button onClick={() => navigate('/')} arrow outlined>Go to Main</Button>
     </div>
   );
 };

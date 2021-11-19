@@ -492,30 +492,60 @@ $maxWidth: 1920;
 .go_back_link {
   display: inline-flex;
   align-items: center;
-  @media (hover: hover) {
-    &:hover {
-      svg {
-        fill: darken(#ffff00, 5%);
-        transform: translateX(-3px);
-      }
-      span {
-        color: darken(#ffff00, 5%);
-      }
-    }
-  }
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
   svg {
     flex: 0 0 30px;
     height: 30px;
     fill: #ffff00;
     margin: 0px 10px 0px 0px;
-    transition: fill .2s ease 0s, transform .2s ease 0s;
+    transition: fill 0.2s ease 0s, transform 0.2s ease 0s;
   }
   span {
     flex: 1 1 auto;
     font-weight: 600;
     font-size: 16px;
-    color: #ff0;
-    transition: color .2s ease 0s;
+    color: #ffff00;
+    transition: color 0.2s ease 0s;
+  }
+  &_init {
+    @media (hover: hover) {
+      &:hover {
+        svg {
+          fill: darken(#ffff00, 5%);
+          transform: translateX(-3px);
+        }
+        span {
+          color: darken(#ffff00, 5%);
+        }
+      }
+    }
+  }
+  &_outlined {
+    min-width: 250px;
+    min-height: 38px;
+    background-color: #9a4eb3;
+    text-align: center;
+    padding: 8px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    svg {
+      flex: 0 0 22px;
+      height: 22px;
+      fill: #fff;
+      margin-right: 0;
+    }
+    span {
+      color: #fff;
+      text-transform: capitalize;
+    }
+    @media (hover: hover) {
+      &:hover {
+        background-color: darken(#9a4eb3, 5%);
+        svg {
+          transform: translateX(-3px);
+        }
+      }
+    }
   }
 }
 
@@ -593,20 +623,28 @@ $maxWidth: 1920;
   &_text {
     font-size: 26px;
     line-height: 1.7;
+    letter-spacing: 1px;
     text-align: center;
     color: #ffff00;
     text-shadow: 0px 0px 2px #fff;
+    &:not(:last-child) {
+      margin: 0px 0px 10px 0px;
+    }
 
     -webkit-text-stroke-color: #ffff00;
     -webkit-text-stroke-width: 0.5px;
     -webkit-text-fill-color: transparent;
   }
-  &_video {
-    margin: 20px 0px 0px 0px;
-    border-radius: 5px;
-    box-shadow: 0 16px 24px 2px hsla(0, 0%, 100%, 0.02), 0 6px 30px 5px hsla(0, 0%, 100%, 0.04),
-      0 8px 10px -5px hsla(0, 0%, 100%, 0.1);
-    source {
+  &_img {
+    object-fit: cover;
+    &_500 {
+      width: 380px;
+      height: 380px;
+    }
+    &_oops {
+      width: 300px;
+      height: 300px;
+      margin: 0px 0px 15px 0px;
     }
   }
 }

@@ -23,7 +23,10 @@ const Search = () => {
     async (value) => {
       setInProgress(true);
       const res = await mainAPI.getSearchData(value);
-      if (res) {
+      if (res.code) {
+        setInProgress(false);
+        dispatch(setErrorApi(res));
+      } else {
         const resPeople = res.data.results;
         const resFilteredPeople = resPeople.map(({ name, url }) => {
           const id = getPeopleId(url);
@@ -39,9 +42,6 @@ const Search = () => {
         setPeople(resFilteredPeople);
 
         dispatch(setErrorApi(false));
-      } else {
-        setInProgress(false);
-        dispatch(setErrorApi(true));
       }
     },
     [dispatch],

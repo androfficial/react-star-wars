@@ -1,18 +1,17 @@
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
+import { Button } from '@components';
 import NotFoundImage from '@assets/images/NotFound/not-found.png';
 
 import s from '@styles/style.module.scss';
 
 const NotFound = () => {
-  let location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <div className={s.not_found}>
       <img src={NotFoundImage} alt="Not Found" />
-      <p className={s.not_found_text}>
-        No matches for <u>{location.pathname}</u>
-      </p>
+      <Button onClick={() => navigate('/')} arrow outlined>Go to Main</Button>
     </div>
   );
 };

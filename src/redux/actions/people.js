@@ -30,6 +30,10 @@ export const setCurrentPage = (payload) => ({
 });
 
 export const getItems = (page) => async (dispatch) => {
-  const data = await mainAPI.getPeople(page);
-  data ? dispatch(setItems(page, data.data)) : dispatch(setErrorApi(true));
+  const response = await mainAPI.getPeople(page);
+  if (response.code) {
+    dispatch(setErrorApi(response));
+  } else {
+    dispatch(setItems(page, response.data));
+  }
 };

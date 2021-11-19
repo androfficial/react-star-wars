@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import cn from 'classnames';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { PersonGoBack, Preloader } from '@components';
+import { Button, Preloader } from '@components';
 
 import { getPerson, setIsLoaded } from '@redux/actions/person';
 import { setFavorites } from '@redux/actions/favorites';
@@ -15,22 +14,20 @@ import s from '@styles/style.module.scss';
 const Person = () => {
   const { id } = useParams();
   const { personFavorites } = useTheme();
-  const [isAdded, setIsAdded] = useState(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const { personId, name, image, films, details } = useSelector(({ person }) => person.personInfo);
   const isLoaded = useSelector(({ person }) => person.isLoaded);
 
-  const onAddToFavorites = async () => {
-    setIsAdded(true);
+  const onAddToFavorites = () => {
     const obj = {
       personId,
       name,
       image,
     };
 
-    await dispatch(setFavorites(obj));
-    setIsAdded(false);
+    dispatch(setFavorites(obj));
   };
 
   useEffect(() => {
@@ -42,13 +39,12 @@ const Person = () => {
     <>
       {isLoaded ? (
         <div className={s.person}>
-          <PersonGoBack />
+          <Button onClick={() => navigate(-1)} arrow init>Go Back</Button>
           <div className={s.person_body}>
             <span className={s.person_name}>{name}</span>
             <div className={s.person_content}>
               <div className={s.person_picture}>
                 <button
-                  disabled={isAdded}
                   onClick={onAddToFavorites}
                   className={s.person_button}>
                   {personFavorites(personId) ? (
