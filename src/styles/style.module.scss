@@ -729,6 +729,7 @@ $maxWidth: 1920;
   grid-auto-rows: auto;
   row-gap: 20px;
   text-align: center;
+  padding: 0 15px;
   img {
     @include adaptiv-value("width", 275, 220, 1);
     object-fit: cover;
@@ -749,9 +750,10 @@ $maxWidth: 1920;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0 15px;
   &_text {
-    @include adaptiv-value("font-size", 26, 22, 1);
-    line-height: 1.7;
+    @include adaptiv-value("font-size", 26, 20, 1);
+    line-height: 28px / 26px * 100%;
     letter-spacing: 1px;
     text-align: center;
     color: #ffff00;
@@ -770,7 +772,7 @@ $maxWidth: 1920;
       @include adaptiv-value("width", 380, 280, 1);
     }
     &_oops {
-      width: 300px;
+      @include adaptiv-value("width", 300, 200, 1);
       margin: 0px 0px 15px 0px;
     }
   }
