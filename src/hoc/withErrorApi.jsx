@@ -6,9 +6,7 @@ import s from '@styles/style.module.scss';
 
 export const withErrorApi = (Component) => {
   const AppWrapper = (props) => {
-    const { error } = useSelector(({ people }) => people.errorApi);
-
-    let code = 501;
+    const { error, code } = useSelector(({ people }) => people.errorApi);
     
     if (error) {
       switch (code) {
