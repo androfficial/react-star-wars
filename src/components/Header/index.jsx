@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import cn from 'classnames';
 
 import HeaderNavLink from '@components/HeaderNavLink';
@@ -13,6 +13,7 @@ import s from '@styles/style.module.scss';
 const Header = () => {
   const [icon, setIcon] = useState(SpaceStation);
   const { theme, change } = useTheme();
+  const [showMenu, setShowMenu] = useState(false);
   const count = useSelector(({ favorites }) => favorites.items.length);
 
   const getFavoritesCount = () => (String(count).length >= 2 ? '9+' : count);
@@ -40,26 +41,55 @@ const Header = () => {
   return (
     <div className={s.header}>
       <div className={s.logo}>
-        <HeaderNavLink path="/" className={s.logo_link} image={icon} alt="Star Wars Logo" />
+        <NavLink to="/" className={s.logo_link}>
+          <img src={icon} alt="Star Wars Logo" />
+        </NavLink>
       </div>
       <div className={s.menu}>
-        <ul className={s.list}>
-          <li className={s.item}>
-            <HeaderNavLink path="/" className={activeNavLink} text="Home" />
-          </li>
-          <li className={s.item}>
-            <HeaderNavLink path="/people" className={activeNavLink} text="People" />
-          </li>
-          <li className={s.item}>
-            <HeaderNavLink path="/search" className={activeNavLink} text="Search" />
-          </li>
-          <li className={s.item}>
-            <HeaderNavLink path="/not-found" className={activeNavLink} text="Not Found" />
-          </li>
-          <li className={s.item}>
-            <HeaderNavLink path="/fail" className={activeNavLink} text="Fail" />
-          </li>
-        </ul>
+        <nav className={cn(s.menu_body, showMenu && s.active)}>
+          <ul className={s.list}>
+            <li className={s.item}>
+              <HeaderNavLink
+                setShowMenu={setShowMenu}
+                path="/"
+                className={activeNavLink}
+                text="Home"
+              />
+            </li>
+            <li className={s.item}>
+              <HeaderNavLink
+                setShowMenu={setShowMenu}
+                path="/people"
+                className={activeNavLink}
+                text="People"
+              />
+            </li>
+            <li className={s.item}>
+              <HeaderNavLink
+                setShowMenu={setShowMenu}
+                path="/search"
+                className={activeNavLink}
+                text="Search"
+              />
+            </li>
+            <li className={s.item}>
+              <HeaderNavLink
+                setShowMenu={setShowMenu}
+                path="/not-found"
+                className={activeNavLink}
+                text="Not Found"
+              />
+            </li>
+            <li className={s.item}>
+              <HeaderNavLink
+                setShowMenu={setShowMenu}
+                path="/fail"
+                className={activeNavLink}
+                text="Fail"
+              />
+            </li>
+          </ul>
+        </nav>
       </div>
       <div className={s.favorites}>
         <Link to="/favorites" className={s.go_to_favorites}>
@@ -73,6 +103,14 @@ const Header = () => {
           </svg>
         </Link>
       </div>
+      <button
+        onClick={() => setShowMenu((prev) => !prev)}
+        className={cn(s.icon_menu, showMenu && s.active)}
+        type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   );
 };
