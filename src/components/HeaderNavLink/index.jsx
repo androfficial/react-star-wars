@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { isMobile } from '@services/addMarginRight';
+import { isMobile } from '@services/mobileDetect';
 
 const HeaderNavLink = ({ setShowMenu, path, className, text, image = false, alt = false }) => {
   const closeMenu = () => {
