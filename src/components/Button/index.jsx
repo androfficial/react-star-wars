@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 import s from '@styles/style.module.scss';
 
@@ -22,6 +23,14 @@ const Button = ({ onClick, children, arrow, init, outlined }) => {
       </button>
     </div>
   );
+};
+
+Button.propTypes = {
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  arrow: PropTypes.bool,
+  init: PropTypes.bool,
+  outlined: PropTypes.bool,
 };
 
 export default Button;

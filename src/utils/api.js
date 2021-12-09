@@ -1,13 +1,14 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://swapi.dev/api/',
+  baseURL: 'https://swapi.py4e.com/',
 });
 
 export const mainAPI = {
   async getPeople(page = 1) {
     try {
       const { data } = await instance.get(`people/?page=${page}`);
+      console.log(data);
 
       return {
         data,
