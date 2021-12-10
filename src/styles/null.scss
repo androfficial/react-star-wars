@@ -6,15 +6,32 @@
   --theme-default-header: var(--theme-neitral-header);
 
   // BACKGROUNDS
-  --theme-light-bgimage: linear-gradient(to right bottom, #051937, #162454, #312d70, #533389, #7a359f);
-  --theme-dark-bgimage:  linear-gradient(to right bottom, #000000, #160b11, #20141e, #281b2e, #2b2440);
+  --theme-light-bgimage: linear-gradient(
+    to right bottom,
+    #051937,
+    #162454,
+    #312d70,
+    #533389,
+    #7a359f
+  );
+  --theme-dark-bgimage: linear-gradient(
+    to right bottom,
+    #000000,
+    #160b11,
+    #20141e,
+    #281b2e,
+    #2b2440
+  );
   --theme-neitral-bgimage: url(../assets/images/bg.jpg);
   --theme-default-bgimage: var(--theme-neitral-bgimage);
 }
 
 * {
-  scrollbar-color: rgb(37, 56, 97) rgba(0, 0, 0, .7);
+  scrollbar-color: rgb(37, 56, 97) rgba(0, 0, 0, 0.7);
   scrollbar-width: thin;
+  padding: 0;
+  margin: 0;
+  border: 0;
 }
 
 ::-webkit-scrollbar {
@@ -27,7 +44,7 @@
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner {
-  background-color: rgba(0, 0, 0, .7);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 input,
@@ -38,11 +55,6 @@ textarea,
 }
 ::placeholder {
   color: inherit;
-}
-* {
-  padding: 0;
-  margin: 0;
-  border: 0;
 }
 *,
 *::before,
@@ -78,52 +90,52 @@ h3,
 h4,
 h5,
 h6 {
+  margin: 0;
   font-size: inherit;
   font-weight: 400;
-  margin: 0;
 }
 p {
   margin: 0;
 }
 ul,
 li {
-  list-style: none;
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 button {
-  border: none;
-  background: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
+  background: none;
+  border: none;
   &:active,
   &:focus {
     outline: none;
   }
 }
 html {
-  min-height: 100%;
   min-width: 100%;
+  min-height: 100%;
   &._pc {
-    overflow-x: hidden;
     margin: 0px calc(-1 * (100vw - 100%)) 0px 0px;
+    overflow-x: hidden;
   }
 }
 body {
-  margin: 0;
-  height: 100%;
   width: 100%;
+  height: 100%;
+  margin: 0;
   font-family: sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-weight: 400;
   line-height: 1;
   color: #fff;
   background: var(--theme-default-bgimage);
   background-color: #10100e;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 0 0;
-  background-repeat: no-repeat;
   background-size: cover;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
