@@ -6,7 +6,7 @@
     "axios": "^0.24.0",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
-    "sass": "^1.44.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-app-rewire-alias": "^1.1.5",
     "react-app-rewired": "^2.1.8",
@@ -16,18 +16,27 @@
     "react-router-dom": "^6.0.1",
     "react-scripts": "4.0.3",
     "redux": "^4.1.2",
-    "redux-thunk": "^2.4.0"
+    "redux-thunk": "^2.4.0",
+    "sass": "^1.44.0"
   },
   "scripts": {
     "start": "react-app-rewired start",
     "build": "CI=false && react-app-rewired build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "eslint": "eslint -c .eslintrc.json --ext .js,.jsx .",
+    "eslint:fix": "npm run lint -- --fix"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
   },
   "browserslist": {
     "production": [

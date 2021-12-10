@@ -1,14 +1,13 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://swapi.py4e.com/',
+  baseURL: 'https://swapi.dev/api/',
 });
 
-export const mainAPI = {
+const mainAPI = {
   async getPeople(page = 1) {
     try {
       const { data } = await instance.get(`people/?page=${page}`);
-      console.log(data);
 
       return {
         data,
@@ -20,6 +19,9 @@ export const mainAPI = {
           code: error.response.status,
         };
       }
+      return {
+        error: true,
+      };
     }
   },
   async getPerson(id) {
@@ -28,12 +30,12 @@ export const mainAPI = {
 
       data.films = await Promise.all(
         data.films.map(async (url) => {
-          const { data } = await axios.get(url);
+          const { data: episodes } = await axios.get(url);
           return {
-            episodeId: data.episode_id,
-            title: data.title,
+            episodeId: episodes.episode_id,
+            title: episodes.title,
           };
-        }),
+        })
       );
 
       return data;
@@ -44,6 +46,9 @@ export const mainAPI = {
           code: error.response.status,
         };
       }
+      return {
+        error: true,
+      };
     }
   },
   async getSearchData(value) {
@@ -60,6 +65,11 @@ export const mainAPI = {
           code: error.response.status,
         };
       }
+      return {
+        error: true,
+      };
     }
   },
 };
+
+export default mainAPI;

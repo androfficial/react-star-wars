@@ -1,4 +1,4 @@
-import { mainAPI } from '@utils/api';
+import mainAPI from '@utils/api';
 
 export const Types = {
   SET_PERSON: 'PEOPLE@SET:PERSON',
@@ -23,5 +23,9 @@ export const setErrorApi = (payload) => ({
 
 export const getPerson = (id) => async (dispatch) => {
   const data = await mainAPI.getPerson(id);
-  data ? dispatch(setPerson(data)) : dispatch(setErrorApi(true));
+  if (data) {
+    dispatch(setPerson(data));
+  } else {
+    dispatch(setErrorApi(true));
+  }
 };

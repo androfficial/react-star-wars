@@ -1,4 +1,4 @@
-import { mainAPI } from '@utils/api';
+import mainAPI from '@utils/api';
 
 export const Types = {
   SET_PEOPLE: 'PEOPLE@SET:PEOPLE',

@@ -1,4 +1,4 @@
-export const Constants = {
+const Constants = {
   HTTP: 'http://',
   HTTPS: 'https://',
   SWAPI_ROOT: 'swapi.dev/api/',
@@ -6,3 +6,5 @@ export const Constants = {
   URL_IMG_PERSON: 'https://starwars-visualguide.com/assets/img/characters',
   GUIDE_IMG_EXTENSION: '.jpg',
 };
+
+export default Constants;

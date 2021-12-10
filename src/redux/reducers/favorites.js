@@ -3,7 +3,7 @@ import { getLocalStorage } from '@utils/localStorage';
 
 const initialState = getLocalStorage('store');
 
-const favorites = (state = initialState, action) => {
+const favorites = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.SET_FAVORITES: {
       const newItems = state.items.find((obj) => obj.personId === action.payload.personId)

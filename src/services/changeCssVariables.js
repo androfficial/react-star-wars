@@ -1,4 +1,4 @@
-export const changeCssVariables = (name) => {
+const changeCssVariables = (name) => {
   const root = document.querySelector(':root');
   const cssVariables = ['header', 'bgimage'];
 
@@ -6,3 +6,5 @@ export const changeCssVariables = (name) => {
     root.style.setProperty(`--theme-default-${el}`, `var(--theme-${name}-${el})`);
   });
 };
+
+export default changeCssVariables;

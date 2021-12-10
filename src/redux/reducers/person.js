@@ -1,12 +1,12 @@
 import { Types } from '@redux/actions/person';
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 
-let initialState = {
+const initialState = {
   personInfo: {},
   isLoaded: false,
 };
 
-const person = (state = initialState, action) => {
+const person = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.SET_PERSON: {
       const id = getPeopleId(action.payload.url);

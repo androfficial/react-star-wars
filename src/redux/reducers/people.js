@@ -1,7 +1,7 @@
 import { getPeopleId, getPeopleImage } from '@services/getPeopleData';
 import { Types } from '@redux/actions/people';
 
-let initialState = {
+const initialState = {
   items: [],
   countItems: null,
   errorApi: false,
@@ -11,7 +11,7 @@ let initialState = {
   isLoaded: false,
 };
 
-const cart = (state = initialState, action) => {
+const cart = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.SET_PEOPLE: {
       const { count, next: nextPage, previous: prevPage, results: items } = action.payload;
@@ -32,9 +32,9 @@ const cart = (state = initialState, action) => {
         items: peopleList,
         countItems: count,
         errorApi: false,
-        prevPage: prevPage,
+        prevPage,
         currentPage: action.page,
-        nextPage: nextPage,
+        nextPage,
         isLoaded: true,
       };
     }

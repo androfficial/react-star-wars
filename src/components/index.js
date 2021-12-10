@@ -1,4 +1,4 @@
-export { default as App } from './App';
+/* eslint-disable import/no-cycle */
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Empty } from './Empty';
