@@ -23,8 +23,12 @@
     "start": "react-app-rewired start",
     "build": "CI=false && react-app-rewired build",
     "eject": "react-scripts eject",
-    "eslint": "eslint -c .eslintrc.json --ext .js,.jsx .",
-    "eslint:fix": "npm run lint -- --fix"
+    "stylelint": "stylelint src/styles/**/*.{sass,scss}",
+    "stylelint:fix": "stylelint src/styles/**/*.{sass,scss} --fix"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.4",
+    "stylelint": "^14.1.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
@@ -36,7 +40,16 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1"
+    "postcss": "^8.4.4",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-recess-order": "^3.0.0",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-declaration-block-no-ignored-properties": "^2.5.0",
+    "stylelint-prettier": "^2.0.0",
+    "stylelint-webpack-plugin": "^3.1.0"
   },
   "browserslist": {
     "production": [
