@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { isMobile } from '@services/mobileDetect';
+import PropTypes from 'prop-types';
 
-const HeaderNavLink = ({ setShowMenu, path, className, text, image = false, alt = false }) => {
+import isMobile from '@services/mobileDetect';
+
+const HeaderNavLink = ({ setShowMenu, path, className, text }) => {
   const closeMenu = () => {
     if (isMobile.any() && window.innerWidth < 700) {
       setShowMenu(false);
@@ -10,10 +12,16 @@ const HeaderNavLink = ({ setShowMenu, path, className, text, image = false, alt 
 
   return (
     <NavLink onClick={closeMenu} to={path} className={className}>
-      {image && <img src={image} alt={alt} />}
       {text}
     </NavLink>
   );
+};
+
+HeaderNavLink.propTypes = {
+  setShowMenu: PropTypes.func.isRequired,
+  path: PropTypes.string.isRequired,
+  className: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default HeaderNavLink;

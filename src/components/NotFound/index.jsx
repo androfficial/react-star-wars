@@ -10,8 +10,10 @@ const NotFound = () => {
 
   return (
     <div className={s.not_found}>
-      <img src={NotFoundImage} alt="Not Found" />
-      <Button onClick={() => navigate('/')} arrow outlined>Go to Main</Button>
+      <img src={NotFoundImage} alt='Not Found' />
+      <Button onClick={() => navigate('/')} arrow outlined>
+        Go to Main
+      </Button>
     </div>
   );
 };

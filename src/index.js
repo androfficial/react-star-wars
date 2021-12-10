@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from '@redux/store';
-import App from '@components/App';
 import ThemeProvider from '@context/ThemeProvider';
+import App from '@components/App';
 
 import '@styles/style.module.scss';
 
@@ -19,5 +19,5 @@ ReactDOM.render(
       </Provider>
     </Router>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

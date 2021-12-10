@@ -10,7 +10,7 @@ const Favorites = () => {
 
   return (
     <div className={s.my_favorites}>
-      <Title text="Your Favorites" />
+      <Title text='Your Favorites' />
       {items.length > 0 ? (
         <ul className={s.favorites_list}>
           {items.map(({ personId, name, image }, i) => (

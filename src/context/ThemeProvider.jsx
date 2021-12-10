@@ -1,6 +1,9 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
 import { createContext, useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { changeCssVariables } from '@services/changeCssVariables';
+import changeCssVariables from '@services/changeCssVariables';
 
 export const THEME_LIGHT = 'light';
 export const THEME_DARK = 'dark';

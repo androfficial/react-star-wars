@@ -817,7 +817,7 @@ $maxWidth: 1920;
   &_text {
     font-weight: 700;
     @include adaptiv-value("font-size", 20, 18, 1);
-    line-height: 24px / 20px * 100%;
+    line-height: math.div(24, 20) * 100%;
     letter-spacing: 1px;
     color: lighten(#f75d83, 5%);
   }
