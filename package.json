@@ -23,8 +23,10 @@
     "start": "react-app-rewired start",
     "build": "CI=false && react-app-rewired build",
     "eject": "react-scripts eject",
-    "stylelint": "stylelint src/styles/**/*.{sass,scss}",
-    "stylelint:fix": "stylelint src/styles/**/*.{sass,scss} --fix"
+    "eslint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "eslint:fix": "eslint --fix . --ext .js,.jsx --ignore-path .gitignore",
+    "stylelint": "stylelint src/styles/**/*.{sass,scss} --ip mixins.scss",
+    "stylelint:fix": "stylelint --fix src/styles/**/*.{sass,scss} --ip mixins.scss"
   },
   "peerDependencies": {
     "postcss": "^8.4.4",
