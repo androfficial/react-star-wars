@@ -13,7 +13,9 @@ const checkProtocol = (url) => {
 const getId = (url, category) => {
   const protocol = checkProtocol(url);
 
-  const id = url.replace(protocol + Constants.SWAPI_ROOT + category, '').replace(/\//g, '');
+  const id = url
+    .replace(protocol + Constants.SWAPI_ROOT + category, '')
+    .replace(/\//g, '');
 
   return +id;
 };

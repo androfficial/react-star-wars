@@ -15,7 +15,8 @@ export const ThemeProvider = ({ children, ...props }) => {
   const items = useSelector(({ favorites }) => favorites.items);
   const [theme, setTheme] = useState(null);
 
-  const personFavorites = (personId) => items.some((obj) => obj.personId === personId);
+  const personFavorites = (personId) =>
+    items.some((obj) => obj.personId === personId);
 
   const handleChangeTheme = (name) => {
     setTheme(name);
@@ -29,7 +30,8 @@ export const ThemeProvider = ({ children, ...props }) => {
         change: handleChangeTheme,
         personFavorites,
       }}
-      {...props}>
+      {...props}
+    >
       {children}
     </ThemeContext.Provider>
   );

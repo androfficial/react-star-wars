@@ -5,7 +5,10 @@
     "stylelint-config-recess-order",
     "stylelint-prettier/recommended"
   ],
-  "plugins": ["stylelint-declaration-block-no-ignored-properties", "stylelint-prettier"],
+  "plugins": [
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-prettier"
+  ],
   "rules": {
     "prettier/prettier": true,
     "plugin/declaration-block-no-ignored-properties": true,

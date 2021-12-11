@@ -14,8 +14,13 @@ const ErrorMessage = ({ customHeight, code, message, className, image }) => {
       style={{
         height: customHeight,
       }}
-      className={s.error}>
-      <img className={cn(s.error_img, className)} src={image} alt={cn('Error', code)} />
+      className={s.error}
+    >
+      <img
+        className={cn(s.error_img, className)}
+        src={image}
+        alt={cn('Error', code)}
+      />
       <p className={s.error_text}>{message}</p>
       <Button onClick={() => navigate('/')} arrow outlined>
         Go to Main

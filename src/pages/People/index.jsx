@@ -15,13 +15,15 @@ const People = () => {
   let queryPage = useQueryParams().get('page');
 
   const dispatch = useDispatch();
-  const { people, currentPage, prevPage, nextPage, isLoaded } = useSelector(({ people }) => ({
-    people: people.items,
-    currentPage: people.currentPage,
-    prevPage: people.prevPage,
-    nextPage: people.nextPage,
-    isLoaded: people.isLoaded,
-  }));
+  const { people, currentPage, prevPage, nextPage, isLoaded } = useSelector(
+    ({ people }) => ({
+      people: people.items,
+      currentPage: people.currentPage,
+      prevPage: people.prevPage,
+      nextPage: people.nextPage,
+      isLoaded: people.isLoaded,
+    })
+  );
 
   useEffect(() => {
     if (queryPage === null) {
@@ -43,7 +45,11 @@ const People = () => {
           </li>
         ))}
       </ul>
-      <Navigation currentPage={currentPage} prevPage={prevPage} nextPage={nextPage} />
+      <Navigation
+        currentPage={currentPage}
+        prevPage={prevPage}
+        nextPage={nextPage}
+      />
     </div>
   ) : (
     <Preloader />

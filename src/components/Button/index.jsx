@@ -11,7 +11,8 @@ const Button = ({ onClick, children, arrow, init, outlined }) => (
         [s.go_back_link_init]: init,
         [s.go_back_link_outlined]: outlined,
       })}
-      type='button'>
+      type='button'
+    >
       {arrow && (
         <svg viewBox='0 0 443.52 443.52'>
           <path

@@ -6,7 +6,12 @@ import cn from 'classnames';
 import HeaderNavLink from '@components/HeaderNavLink';
 import { SpaceStation, Droid, Lightsaber } from '@assets/images/Header';
 
-import { useTheme, THEME_LIGHT, THEME_DARK, THEME_NEITRAL } from '@context/ThemeProvider';
+import {
+  useTheme,
+  THEME_LIGHT,
+  THEME_DARK,
+  THEME_NEITRAL,
+} from '@context/ThemeProvider';
 
 import s from '@styles/style.module.scss';
 
@@ -106,7 +111,8 @@ const Header = () => {
       <button
         onClick={() => setShowMenu((prev) => !prev)}
         className={cn(s.icon_menu, showMenu && s.active)}
-        type='button'>
+        type='button'
+      >
         <span />
         <span />
         <span />

@@ -17,7 +17,9 @@ const Person = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const { personId, name, image, films, details } = useSelector(({ person }) => person.personInfo);
+  const { personId, name, image, films, details } = useSelector(
+    ({ person }) => person.personInfo
+  );
   const isLoaded = useSelector(({ person }) => person.isLoaded);
 
   const onAddToFavorites = () => {
@@ -44,7 +46,11 @@ const Person = () => {
         <span className={s.person_name}>{name}</span>
         <div className={s.person_content}>
           <div className={s.person_picture}>
-            <button onClick={onAddToFavorites} className={s.person_button} type='button'>
+            <button
+              onClick={onAddToFavorites}
+              className={s.person_button}
+              type='button'
+            >
               {personFavorites(personId) ? (
                 <svg viewBox='0 0 512 512'>
                   <g fill='#ffff00' stroke='#000'>
@@ -85,8 +91,13 @@ const Person = () => {
                 films
                   .sort((a, z) => a.episodeId - z.episodeId)
                   .map(({ episodeId, title }, i) => (
-                    <li key={`${title}_${i}`} className={s.person_episodes_item}>
-                      <span className={s.person_episodes_num}>Episode: {episodeId}</span>
+                    <li
+                      key={`${title}_${i}`}
+                      className={s.person_episodes_item}
+                    >
+                      <span className={s.person_episodes_num}>
+                        Episode: {episodeId}
+                      </span>
                       <span className={s.person_episodes_colon}>:</span>
                       <span className={s.person_episodes_title}>{title}</span>
                     </li>
