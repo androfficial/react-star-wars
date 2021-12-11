@@ -27,8 +27,8 @@
     "eslint:fix": "eslint --fix . --ext .js,.jsx --ignore-path .gitignore",
     "stylelint": "stylelint src/styles/**/*.{sass,scss}",
     "stylelint:fix": "stylelint --fix src/styles/**/*.{sass,scss}",
-    "format": "prettier --check . !src/styles/mixins/mixins.scss --config .prettierrc --ignore-path .gitignore",
-    "format:fix": "prettier -w . !src/styles/mixins/mixins.scss --config .prettierrc --ignore-path .gitignore"
+    "format": "prettier --check . !src/styles/mixins/mixins.scss --ignore-path .gitignore",
+    "format:fix": "prettier -w . !src/styles/mixins/mixins.scss --ignore-path .gitignore"
   },
   "peerDependencies": {
     "postcss": "^8.4.4",
