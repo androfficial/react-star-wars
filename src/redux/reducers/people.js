@@ -14,7 +14,12 @@ const initialState = {
 const cart = (state = initialState, action = {}) => {
   switch (action.type) {
     case Types.SET_PEOPLE: {
-      const { count, next: nextPage, previous: prevPage, results: items } = action.payload;
+      const {
+        count,
+        next: nextPage,
+        previous: prevPage,
+        results: items,
+      } = action.payload;
 
       const peopleList = items.map(({ name, url }) => {
         const id = getPeopleId(url);

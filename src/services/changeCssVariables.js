@@ -3,7 +3,10 @@ const changeCssVariables = (name) => {
   const cssVariables = ['header', 'bgimage'];
 
   cssVariables.forEach((el) => {
-    root.style.setProperty(`--theme-default-${el}`, `var(--theme-${name}-${el})`);
+    root.style.setProperty(
+      `--theme-default-${el}`,
+      `var(--theme-${name}-${el})`
+    );
   });
 };
 

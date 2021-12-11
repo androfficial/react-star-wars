@@ -10,14 +10,16 @@ const Navigation = ({ currentPage, prevPage, nextPage }) => (
       to={`/people/?page=${currentPage - 1}`}
       className={cn(s.nav_link, {
         [s.nav_link_disabled]: !prevPage,
-      })}>
+      })}
+    >
       Prev
     </Link>
     <Link
       to={`/people/?page=${currentPage + 1}`}
       className={cn(s.nav_link, {
         [s.nav_link_disabled]: !nextPage,
-      })}>
+      })}
+    >
       Next
     </Link>
   </div>

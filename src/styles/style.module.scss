@@ -119,7 +119,8 @@ $maxWidth: 1920;
   text-shadow: 0 0 2px #fff, 0 0 10px #ff0;
   border: 2px solid transparent;
   border-radius: 3px;
-  transition: border-color 0.4s ease 0s, color 0.4s ease 0s, text-shadow 0.4s ease 0s;
+  transition: border-color 0.4s ease 0s, color 0.4s ease 0s,
+    text-shadow 0.4s ease 0s;
   &_active {
     color: #ae72c2;
     text-shadow: none;
