@@ -7,6 +7,7 @@ import store from '@redux/store';
 import ThemeProvider from '@context/ThemeProvider';
 import App from '@components/App';
 
+import '@styles/html.scss';
 import '@styles/style.module.scss';
 
 ReactDOM.render(

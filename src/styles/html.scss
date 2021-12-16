@@ -1,0 +1,6 @@
+html {
+  &._pc {
+    margin: 0px calc(-1 * (100vw - 100%)) 0px 0px;
+    overflow-x: hidden;
+  }
+}
