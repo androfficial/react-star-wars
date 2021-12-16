@@ -34,10 +34,6 @@ yarn run start
 yarn run build
 ```
 
-#### Development
-
-=======
-
 #### Scripts:
 
 - `eslint` - static analysis of scripts
