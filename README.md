@@ -34,15 +34,11 @@ yarn run start
 yarn run build
 ```
 
-<<<<<<< HEAD
-
 #### Development
 
 =======
 
 #### Scripts:
-
-> > > > > > > 147b881d84a145ca976729523758e14c72f52c53
 
 - `eslint` - static analysis of scripts
 - `eslint:fix` - fix scripts errors
