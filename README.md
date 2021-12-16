@@ -1,18 +1,47 @@
 ## :ringed_planet: Star Wars Application
 
-### :recycle: Available Scripts and Commands
+### :link: Installation
+
+#### Clone repo
 
 ```bash
-# Install dependencies
+https://github.com/androfficial/react-star-wars.git
+```
+
+#### Install dependencies
+
+```bash
 npm i
+```
+
+```bash
 yarn install
 ```
 
+---
+
+### :recycle: Available Scripts and Commands
+
+#### Run app
+
 ```bash
-# Run app
-npm run start
-yarn start
+yarn run start
 ```
+
+#### Build app
+
+```bash
+yarn run build
+```
+
+#### Development
+
+- `eslint` - static analysis of scripts
+- `eslint:fix` - fix scripts errors
+- `stylelint` - static analysis of styles
+- `stylelint:fix` - fix styles errors
+- `format` - check if files are formatted
+- `format:fix` - format files
 
 ---
 
